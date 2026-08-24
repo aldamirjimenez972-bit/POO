@@ -1,0 +1,45 @@
+using System;
+using System.Security.Cryptography;
+
+public class Program
+{
+    public static void Main(string[] args)
+    {
+        Automovil miAuto = new Automovil();
+        miAuto.Modelo = "zxl";
+        miAuto.Marca = "bmw";
+        miAuto.Anio = 2018;
+        miAuto.Velocidadactual = 0;
+
+        miAuto.mostrarinformacion();
+
+    }
+}
+
+public class Automovil
+{
+
+    public string Marca;
+    public string Modelo;
+    public int Anio;
+    public int Placa;
+    public double Velocidadactual;
+
+    public void Acelerar(double inc) { Velocidadactual += inc; }
+
+    public void Frenar(double dec)
+    {
+        if (Velocidadactual - dec >= 0) Velocidadactual += dec;
+        else Velocidadactual = 0;
+    }
+
+
+    public void mostrarinformacion()
+    {
+        Console.WriteLine($"marca:{Marca}");
+        Console.WriteLine($"placa:{Placa}");
+        Console.WriteLine($"modelo:{Modelo}");
+        Console.WriteLine($"anio:{Anio}");
+        Console.WriteLine($"velocidad actual:{Velocidadactual} km/h");
+    }
+
